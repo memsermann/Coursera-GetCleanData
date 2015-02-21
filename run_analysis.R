@@ -28,18 +28,19 @@ CreateTidy<-function(state, outcome,num = "best"){
         Stack<-rbind(training_raw_data,test_raw_data)
         features<-read.table("features.txt")
         
-        #Extract only the measurements on the mean and standard deviation for each measurement.
+        #Extract only the measurements on the mean and standard deviation for each measurement
         colnames<-as.character(features[,2])
         MeanAndStd_features <- grepl("mean|std", colnames)
         Stack<-Stack[,c(TRUE,TRUE,MeanAndStd_features)]
         
-        #Find mean of each variable for each activity and each subject. 
+        #Find mean of each variable for each activity and each subject
         MeanData<-(aggregate(Stack[-c(1,2)], by = Stack[c("Subject","Activity")], FUN = "mean"))
         colnames<-names(MeanData)     
         
         #Clean up column namesgetwd
         colnames<-gsub("()","",colnames,fixed=TRUE)
         colnames(MeanData)<-colnames
+        MeanData<-MeanData[order(MeanData[,1],MeanData[,2]),]
         write.table(MeanData,file="tidy.txt",row.name=FALSE)
 }
 
