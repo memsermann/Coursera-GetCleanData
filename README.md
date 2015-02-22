@@ -150,10 +150,7 @@ This code does the following:
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The R script run_analysis.R (included in the repo) written in  R version 3.1.2 was used to combine and merge the data. 
-Using the data described above, the activity and participant information was "appended" (using cbind()) to the training and test sets.
-The resulting datasets were "stacked" (using rbind()) to create one dataset.  We were only interested in measurements on the mean and standard deviation for each measurement,
-these were extracted using the grep function.  Finally the mean of the result measurements was computed for the resulting 79 variables for each "Subject" and "Activity" combination and stored in a tidy dataset.   Please see the CodeBook included in the repo for more info on the tidy dataset.  
+The R script run\_analysis.R (included in the repo) written in  R version 3.1.2 was used to combine and merge the data. Operating system was MAC OS X Version 10.9.5.  Using the data described above, the activity and participant information was "appended" (using cbind()) to the training and test sets.  The resulting datasets were "stacked" (using rbind()) to create one dataset.  We were only interested in measurements on the mean and standard deviation for each measurement and these were extracted using the grep function.  Using the "activity\_labels.txt" file we replaced the coded "Activites" with their associated physical descriptions.  Finally the mean of the result measurements was computed for the resulting 79 variables for each "Subject" and "Activity" combination and stored in a tidy dataset. Please see the CodeBook included in the repo for more info on the tidy dataset.  Also, please review the documented script run_analysis.R for more detail.     
 
       
 License:
