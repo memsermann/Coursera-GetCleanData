@@ -31,7 +31,7 @@ CreateTidy<-function(){
         descriptive_train_activity_labels<-activity_labels[training_activities[,1],2]
         descriptive_test_activity_labels<-activity_labels[test_activities[,1],2]
         
-        # Supply column names 
+        # Supply column names and get the physical description of "Activity"
         colnames<-c("Subject","Activity",as.character(features[,2]))
         training_raw_data <- cbind(training_subjects,descriptive_train_activity_labels,training_raw_data)
         colnames(training_raw_data)<- colnames
@@ -42,21 +42,19 @@ CreateTidy<-function(){
         Stack<-rbind(training_raw_data,test_raw_data)
         features<-read.table("features.txt")
         
-        # Extract only the measurements on the mean and standard deviation for each measurement
+        #Extract only the measurements on the mean and standard deviation for each measurement
         colnames<-as.character(features[,2])
         MeanAndStd_features <- grepl("mean|std", colnames)
         Stack<-Stack[,c(TRUE,TRUE,MeanAndStd_features)]
         
-        # Find mean of each variable for each activity and each subject
-        MeanData<-(mergeddata[order(-mergeddata$V5),]
-
+        #Find mean of each variable for each activity and each subject
+        MeanData<-(aggregate(Stack[-c(1,2)], by = Stack[c("Subject","Activity")], FUN = "mean"))
         colnames<-names(MeanData)     
         
-        # Clean up column names and appropriately labels the data set with descriptive variable names. 
+        #Clean up column names
         colnames<-gsub("()","",colnames,fixed=TRUE)
         colnames(MeanData)<-colnames
         MeanData<-MeanData[order(MeanData[,1],MeanData[,2]),]
-        # Creat independent tidy data set
         write.table(MeanData,file="tidy.txt",row.name=FALSE)
 }
 
