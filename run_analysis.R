@@ -1,6 +1,7 @@
-## Coursera R Programming - Feb 2015
-## Getting And Cleaning Data Course
-
+## Coursera Getting And Cleaning Data  - Feb 2015
+## 
+## Please read README.md file included in the repo.   
+##
 ## This code does the following:
 ## 1. Merges the training and the test sets to create one data set.
 ## 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -47,7 +48,8 @@ CreateTidy<-function(){
         Stack<-Stack[,c(TRUE,TRUE,MeanAndStd_features)]
         
         # Find mean of each variable for each activity and each subject
-        MeanData<-(aggregate(Stack[-c(1,2)], by = Stack[c("Subject","Activity")], FUN = "mean"))
+        MeanData<-(mergeddata[order(-mergeddata$V5),]
+
         colnames<-names(MeanData)     
         
         # Clean up column names and appropriately labels the data set with descriptive variable names. 
