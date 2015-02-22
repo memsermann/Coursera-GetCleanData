@@ -54,7 +54,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This CodeBook describes the source of the original data and further processing, cleaning and work required by the Coursea Course project “Getting and Cleaning Data”. This Background Section describes the source data, measurement of the variables and further processing through Jerk signal derivations, vector magnitude calculations and Fast Fourier Transformations for the Smartlab - Non Linear Complex Systems Laboratory activity data. In the Summary Statistics Section we describe the data contained in our tidy data set derived from this data that we performed to clean the data. For a complete description on transformations, processing and cleaning of the data to produce the tidy data set, please see the associated README file.</p>
+<p>This Document describes the source of the original data and further processing, cleaning and work required by the Coursera Course project “Getting and Cleaning Data”. This Background Section describes the source data, measurement of the variables and further processing through Jerk signal derivations, vector magnitude calculations and Fast Fourier Transformations for the Smartlab - Non Linear Complex Systems Laboratory activity data. In the Processing of Data Section we describe how we processed and cleaned the original data to produce our tidy data set.</p>
 <div id="background" class="section level2">
 <h2>Background</h2>
 <p>Experiments have been carried out by the Smartlab - Non Linear Complex Systems Laboratory with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, Smartlab captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.</p>
@@ -120,100 +120,59 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p>Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. Smartlab - Non Linear Complex Systems Laboratory DITEN - Universit‡ degli Studi di Genova. Via Opera Pia 11A, I-16145, Genoa, Italy. <a href="mailto:activityrecognition@smartlab.ws">activityrecognition@smartlab.ws</a></p>
 <p>================================</p>
 </div>
-<div id="summary-statistics" class="section level2">
-<h2>Summary Statistics</h2>
-<p>The tidy data set Contains 180 observations and 79 variables. The first column “Subject” indentifies the Subect. There were 30 subjects that participated in this study.<br />For each subject, there were measurements taken on 6 activities - these activites are identified as WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING in the second column “Activity”. The remaining variables are the mean of the across all the measurements taken for a given Subject and Activity. Hence, there are 30*6 = 180 Subject/Activity combinations and where each observation forms a row. Note, each variable forms a column. For this study, we were only interested in extracting the measurements on the mean and standard deviation for each measurement. Thus all the variables represent either the mean or standard deviation of the measurements that were taken. This is represented in the variable name by either containing “mean” or “std”, for mean or standard deviation, respectfully. A complete listing of the variables is given below:</p>
-<p>Note that</p>
+<div id="processing-of-data" class="section level2">
+<h2>Processing of Data</h2>
+<p>The following data sets were provided for analysis:</p>
 <ul>
-<li>Each variable forms a column</li>
-<li>Each observation forms a row</li>
-<li>The tidy data set contains information on only one observational unit of analysis.</li>
+<li>“train/X_train.txt” Training measurements</li>
 </ul>
-<p>Variables in the tidy data set:</p>
+<p>This data contains the 561 variables including time and frequency domain variables for the training set. Futhermore, each row contains 561 measurements for a given “Subject” and “Activity”. This data contains 7352 observations and 561 variables. Variables are normalized and bounded within [-1,1].</p>
 <ul>
-<li>“Subject”<br /></li>
-<li>“Activity”<br /></li>
-<li>“tBodyAcc-mean-X”<br /></li>
-<li>“tBodyAcc-mean-Y”<br /></li>
-<li>“tBodyAcc-mean-Z”<br /></li>
-<li>“tBodyAcc-std-X”<br /></li>
-<li>“tBodyAcc-std-Y”<br /></li>
-<li>“tBodyAcc-std-Z”<br /></li>
-<li>“tGravityAcc-mean-X”<br /></li>
-<li>“tGravityAcc-mean-Y”<br /></li>
-<li>“tGravityAcc-mean-Z”<br /></li>
-<li>“tGravityAcc-std-X”<br /></li>
-<li>“tGravityAcc-std-Y”<br /></li>
-<li>“tGravityAcc-std-Z”<br /></li>
-<li>“tBodyAccJerk-mean-X”<br /></li>
-<li>“tBodyAccJerk-mean-Y”<br /></li>
-<li>“tBodyAccJerk-mean-Z”<br /></li>
-<li>“tBodyAccJerk-std-X”<br /></li>
-<li>“tBodyAccJerk-std-Y”<br /></li>
-<li>“tBodyAccJerk-std-Z”<br /></li>
-<li>“tBodyGyro-mean-X”<br /></li>
-<li>“tBodyGyro-mean-Y”<br /></li>
-<li>“tBodyGyro-mean-Z”<br /></li>
-<li>“tBodyGyro-std-X”<br /></li>
-<li>“tBodyGyro-std-Y”<br /></li>
-<li>“tBodyGyro-std-Z”<br /></li>
-<li>“tBodyGyroJerk-mean-X”<br /></li>
-<li>“tBodyGyroJerk-mean-Y”<br /></li>
-<li>“tBodyGyroJerk-mean-Z”<br /></li>
-<li>“tBodyGyroJerk-std-X”<br /></li>
-<li>“tBodyGyroJerk-std-Y”<br /></li>
-<li>“tBodyGyroJerk-std-Z”<br /></li>
-<li>“tBodyAccMag-mean”<br /></li>
-<li>“tBodyAccMag-std”<br /></li>
-<li>“tGravityAccMag-mean”<br /></li>
-<li>“tGravityAccMag-std”<br /></li>
-<li>“tBodyAccJerkMag-mean”<br /></li>
-<li>“tBodyAccJerkMag-std”<br /></li>
-<li>“tBodyGyroMag-mean”<br /></li>
-<li>“tBodyGyroMag-std”<br /></li>
-<li>“tBodyGyroJerkMag-mean”<br /></li>
-<li>“tBodyGyroJerkMag-std”<br /></li>
-<li>“fBodyAcc-mean-X”<br /></li>
-<li>“fBodyAcc-mean-Y”<br /></li>
-<li>“fBodyAcc-mean-Z”<br /></li>
-<li>“fBodyAcc-std-X”<br /></li>
-<li>“fBodyAcc-std-Y”<br /></li>
-<li>“fBodyAcc-std-Z”<br /></li>
-<li>“fBodyAcc-meanFreq-X”<br /></li>
-<li>“fBodyAcc-meanFreq-Y”<br /></li>
-<li>“fBodyAcc-meanFreq-Z”<br /></li>
-<li>“fBodyAccJerk-mean-X”<br /></li>
-<li>“fBodyAccJerk-mean-Y”<br /></li>
-<li>“fBodyAccJerk-mean-Z”<br /></li>
-<li>“fBodyAccJerk-std-X”<br /></li>
-<li>“fBodyAccJerk-std-Y”<br /></li>
-<li>“fBodyAccJerk-std-Z”<br /></li>
-<li>“fBodyAccJerk-meanFreq-X”<br /></li>
-<li>“fBodyAccJerk-meanFreq-Y”<br /></li>
-<li>“fBodyAccJerk-meanFreq-Z”<br /></li>
-<li>“fBodyGyro-mean-X”<br /></li>
-<li>“fBodyGyro-mean-Y”<br /></li>
-<li>“fBodyGyro-mean-Z”<br /></li>
-<li>“fBodyGyro-std-X”<br /></li>
-<li>“fBodyGyro-std-Y”<br /></li>
-<li>“fBodyGyro-std-Z”<br /></li>
-<li>“fBodyGyro-meanFreq-X”<br /></li>
-<li>“fBodyGyro-meanFreq-Y”<br /></li>
-<li>“fBodyGyro-meanFreq-Z”<br /></li>
-<li>“fBodyAccMag-mean”<br /></li>
-<li>“fBodyAccMag-std”<br /></li>
-<li>“fBodyAccMag-meanFreq”<br /></li>
-<li>“fBodyBodyAccJerkMag-mean”<br /></li>
-<li>“fBodyBodyAccJerkMag-std”<br /></li>
-<li>“fBodyBodyAccJerkMag-meanFreq”</li>
-<li>“fBodyBodyGyroMag-mean”<br /></li>
-<li>“fBodyBodyGyroMag-std”<br /></li>
-<li>“fBodyBodyGyroMag-meanFreq”<br /></li>
-<li>“fBodyBodyGyroJerkMag-mean”<br /></li>
-<li>“fBodyBodyGyroJerkMag-std”<br /></li>
-<li>“fBodyBodyGyroJerkMag-meanFreq”</li>
+<li>“train/y_train.txt” Training activities</li>
 </ul>
+<p>This data contains the 7352 (numerically coded 1-6) observations of the physical activites preformed by the participants in the training dataset. It identifies the activity performed by the participant for each observation in “train/X_train.txt”</p>
+<ul>
+<li>“train/subject_train.txt” Training subject IDs</li>
+</ul>
+<p>This data contains 7352 observations of the participant IDs (1-30) associated with the observations in the training set.<br /> It identifies the participant for each observation in “train/X_train.txt”.</p>
+<ul>
+<li>“test/X_test.txt” Test measurements</li>
+</ul>
+<p>This data contains the 561 variables including time and frequency domain variables for the test set. Futhermore, each row contains 561 measurements for a given “Subject” and “Activity”. This data contains 2947 observations and 561 variables. Variables are normalized and bounded within [-1,1].</p>
+<ul>
+<li>“test/y_test.txt” Test activities</li>
+</ul>
+<p>This data contains the 2947 (numerically coded 1-6) observations of the physical activites preformed by the participants in the test dataset. It identifies the activity performed by the participant for each observation in test/X_test.txt“.</p>
+<ul>
+<li>“test/subject_test.txt” Test subject IDs</li>
+</ul>
+<p>This data contains 2947 observations of the participant IDs (1-30) associated with the observations in the test set.<br /> It identifies the participant for each observation in “train/X_test.txt”.</p>
+<ul>
+<li><p>“activity_labels.txt”</p></li>
+<li><p>Contains descriptions of the physical activity coded in the y_train.txt and y_test.txt data.</p></li>
+<li><p>“features.txt”</p></li>
+</ul>
+<p>This data contains the feature or variable names for the 561 measurements.</p>
 </div>
+<div id="run_analysis.r" class="section level2">
+<h2>run_analysis.R</h2>
+<p>This code does the following:</p>
+<ol style="list-style-type: decimal">
+<li>Merges the training and the test sets to create one data set.</li>
+<li>Extracts only the measurements on the mean and standard deviation for each measurement.</li>
+<li>Uses descriptive activity names to name the activities in the data set</li>
+<li>Appropriately labels the data set with descriptive variable names.</li>
+<li>From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.</li>
+</ol>
+<p>the R script run_analysis.R (included in the repo) written in R version 3.1.2 was used to combine, merge the data. Using the data described above, the activity and participant information was “appended” (using cbind()) to the training and test sets. The resulting datasets were “stacked” (using rbind()) to create one dataset. We were only interested in measurements on the mean and standard deviation for each measurement, these were extracted using the grep function. Finally the mean of the result measurements was computed for the resulting 79 variables for each “Subject” and “Activity” combination and stored in a tidy dataset. Please see the CodeBook included in the repo for more info on the tidy dataset.</p>
+</div>
+</div>
+<div id="license" class="section level1">
+<h1>License:</h1>
+<p>Use of this dataset in publications must be acknowledged by referencing the following publication [1]</p>
+<p>[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012</p>
+<p>This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.</p>
+<p>Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.</p>
 </div>
 
 
