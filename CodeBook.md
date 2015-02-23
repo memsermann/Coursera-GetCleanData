@@ -1,7 +1,11 @@
 
  
 ## CodeBook for Tidy Data
-Please read the README.md file provided in the repo first. The tidy data set Contains 180 observations and 79 variables.  The first column "Subject" indentifies the Subect.  There were 30 subjects that participated in this study.  For each subject, there were measurements taken on 6 activities - these activites are identified as WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING, LAYING in the second column "Activity".  The remaining variables are the mean of the across all the measurements taken for a given Subject and Activity.  Hence, there are 30*6 = 180 Subject/Activity combinations and where each observation forms a row.  Note, each variable forms a column.  For this study, we were only interested in extracting the measurements on the mean and standard deviation for each measurement.  Thus all the variables represent either the mean or standard deviation of the measurements that were taken. This is represented in the variable name by either containing "mean" or "std", for mean or standard deviation, respectfully.  A complete listing of the variables is given below:        
+Please read the README.md file provided in the repo first. 
+
+The tidy data set Contains 180 observations and 81 variables.  The first column "Subject" indentifies the Subect and the second identifies the "Activity".  The remaining 79 columns are the measures.  
+
+There were 30 subjects that participated in this study (identified in first column "Subject").  For each subject, there were measurements taken on 6 activities - these activites are identified as WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING, LAYING (identified in the second column "Activity".  The remaining variables are the mean of the across all the measurements taken for a given Subject and Activity.  Hence, there are 30*6 = 180 Subject/Activity combinations and each observation forms a row.   For this study, we were only interested in extracting the measurements on the mean and standard deviation for each measurement.  Thus all the variables represent either the mean or standard deviation of the measurements that were taken. This is represented in the variable name by either containing "mean" or "std", for mean or standard deviation, respectfully.  A complete listing of the variables is given below:        
 
 Note that 
 

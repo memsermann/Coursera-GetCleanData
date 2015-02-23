@@ -70,11 +70,11 @@ The set of variables that were estimated from these signals are:
 
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
+- gravityMean
+- tBodyAccMean
+- tBodyAccJerkMean
+- tBodyGyroMean
+- tBodyGyroJerkMean
 
 ==================================
 
@@ -105,8 +105,7 @@ The following data sets were provided for analysis:
 - "train/y_train.txt"         Training activities
 
  
- This data contains the 7352 (numerically coded 1-6) observations of the physical activites preformed by the participants in the training dataset. 
- It identifies the activity performed by the participant for each observation in "train/X_train.txt" 
+ This data contains the 7352 (numerically coded 1-6) observations of the physical activites preformed by the participants in the training dataset. It identifies the activity performed by the participant for each observation in "train/X_train.txt" 
  
 - "train/subject_train.txt"   Training subject IDs
 
@@ -134,7 +133,7 @@ The following data sets were provided for analysis:
 
 - "activity\_labels.txt"      
 
-- Contains descriptions of the physical activity coded in the y\_train.txt and y\_test.txt data.  
+ This contains descriptions of the physical activity coded in the y\_train.txt and y\_test.txt data.  
 
 - "features.txt"
 
