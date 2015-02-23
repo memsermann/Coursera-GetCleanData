@@ -1,7 +1,7 @@
 
 # Introduction
-This Document describes the source of the original data and further processing, cleaning and work required by the Coursera Course project "Getting and Cleaning Data".
-This Background Section describes the source data, measurement of the variables and further processing through Jerk signal derivations, vector magnitude calculations and Fast Fourier 
+This document describes the source of the original data and further processing, cleaning and work required by the Coursera Course project "Getting and Cleaning Data".
+The Background Section describes the source data, measurement of the variables and further processing through Jerk signal derivations, vector magnitude calculations and Fast Fourier 
 Transformations for the Smartlab - Non Linear Complex Systems Laboratory activity data.  In the Processing of Data Section we describe how we processed and cleaned  the original data to
 produce our tidy data set.
 
